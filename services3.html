@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratory Services</title>
+    <style>
+
+*{
+            padding: 0;
+             margin: 0;
+            box-sizing: border-box;
+        }
+                body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+           
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .service {
+            margin: 20px 0;
+        }
+
+        .toggle {
+            background: #007BFF;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-align: center;
+        }
+
+        .toggle:hover {
+            background: #0056b3;
+        }
+
+        .dropdown {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .service-list {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+        }
+
+        .service-item {
+            background: #f0f0f0;
+            margin: 5px 0;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+
+        .service-item:hover {
+            background: #e0e0e0;
+        }
+
+        .form-container {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: #fff;
+        }
+
+        .form-item {
+            margin: 10px 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-item label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-item input[type="text"],
+        .form-item input[type="date"],
+        .form-item input[type="email"],
+        .form-item input[type="tel"],
+        .form-item input[type="time"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        .form-item input[type="text"]:focus,
+        .form-item input[type="date"]:focus,
+        .form-item input[type="email"]:focus,
+        .form-item input[type="tel"]:focus,
+        .form-item input[type="time"]:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+
+        .gender-options {
+            display: flex;
+            gap: 15px;
+            margin: 10px 0;
+        }
+
+        .gender-options label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .gender-options input {
+            margin-right: 8px;
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        button[type="button"] {
+            background-color: #6c757d;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button[type="button"]:hover {
+            background-color: #5a6268;
+        }
+
+        .one{
+            margin-bottom: 50px;
+        }
+
+        .bold{
+            text-decoration: solid;
+            text-align: center;
+            
+            margin-bottom: 10px;
+            
+        }
+    </style>
+</head>
+<link rel="stylesheet" href="styles.css">
+<body>
+
+    <header class="one">
+        <nav class="section__container nav__container">
+          <div class="nav__logo">Health<span>Care</span></div>
+          <ul class="nav__links">
+            <li class="link"><a href="index.html">Home</a></li>
+            <li class="link"><a href="dummyabout.html">About Us</a></li>
+            <li class="link"><a href="dummyservices.html">Services</a></li>
+            <li class="link"><a href="blog_comments.html">Blog</a></li>
+            <li class="link"><a href="lab_accountant_login.php">Admin</a></li>
+            
+          </ul>
+          <a href="blog_comments.html" ><button class="btn">Feedback</button></a>
+        </nav>
+        </header >
+    
+
+    <div class="container">
+        <h1>Eye Care Services</h1>
+        
+        <div id="servicesTable">
+            <div class="service">
+                <h2 class="toggle" onclick="toggleDropdown('bloodTestDropdown')">Vision Correction Treatments</h2>
+                <div class="dropdown" id="bloodTestDropdown">
+                    <ul class="service-list">
+                        <li class="service-item" onclick="showForm('cbcForm')">Prescription Glasses</li>
+                        <li class="service-item" onclick="showForm('pregnancyForm')">Contact Lenses</li>
+                        <li class="service-item" onclick="showForm('bloodSugarForm')">Laser Vision Correction (LASIK)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service">
+                <h2 class="toggle" onclick="toggleDropdown('urineTestDropdown')">Surgical and Medical Treatments</h2>
+                <div class="dropdown" id="urineTestDropdown">
+                    <ul class="service-list">
+                        <li class="service-item" onclick="showForm('urinalysisForm')">Cataract Surgery</li>
+                        <li class="service-item" onclick="showForm('urineMicroscopyForm')">Glaucoma Treatment</li>
+                        <li class="service-item" onclick="showForm('urineCultureForm')">Retinal Detachment Surgery</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service">
+                <h2 class="toggle" onclick="toggleDropdown('imagingDropdown')"> Ongoing Eye Care Treatments</h2>
+                <div class="dropdown" id="imagingDropdown">
+                    <ul class="service-list">
+                        <li class="service-item" onclick="showForm('xrayForm')">Dry Eye Treatment</li>
+                        <li class="service-item" onclick="showForm('ctScanForm')">Macular Degeneration Treatment</li>
+                        <li class="service-item" onclick="showForm('mriForm')">Keratoconus Treatment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forms for Tests -->
+        <div id="cbcForm" class="form-container">
+            <h3 class="bold">Prescription Glasses</h3>
+            <p><b>Description:</b> Custom eyewear for vision correction.</p>
+            <div><b>Price:</b> ₹8,000 - ₹32,000</div>
+            <form action="submit_form.php" method="post">
+                <div class="form-item"><label>Name: <input type="text" name="name" required></label></div>
+                <div class="form-item"><label>Date of Birth: <input type="date" name="dob" required></label></div>
+                <div class="form-item"><label>Email (optional): <input type="email" name="email"></label></div>
+                <div class="form-item"><label>Gender : </label>
+                    <div class="gender-options">
+                        <label class="radio-label"><input type="radio" name="gender" value="male" required> Male</label>
+                        <label class="radio-label"><input type="radio" name="gender" value="female"> Female</label>
+                        <label class="radio-label"><input type="radio" name="gender" value="other"> Other</label>
+                    </div>
+                </div>
+                
+                <div class="form-item"><label>Contact Number: <input type="tel" name="contact" required></label></div>
+                <div class="form-item"><label>Preferred Time of Arrival: <input type="time" name="arrival_time" required></label></div>
+                <button type="submit">Submit</button>
+                <button type="button" onclick="goBack()">Back</button>
+            </form>
+            <div class="success-message" id="successMessage"></div>
+        </div>
+
+        <div id="pregnancyForm" class="form-container">
+            <h3 class="bold">Contact Lenses</h3>
+            <p><b>Description:</b> Lenses worn directly on the eye.</p>
+            <div><p><b>Price:</b> ₹2,500 - ₹12,000 (per box)</p></div>
+            <form action="submit_form.php" method="post">
+                <div class="form-item"><label>Name: <input type="text" name="name" required></label></div>
+                <div class="form-item"><label>Date of Birth: <input type="date" name="dob" required></label></div>
+                <div class="form-item"><label>Email (optional): <input type="email" name="email"></label></div>
+                <div class="form-item"><label>Gender : </label>
+                    <div class="gender-options">
+                        <label class="radio-label"><input type="radio" name="gender" value="male" required> Male</label>
+                        <label class="radio-label"><input type="radio" name="gender" value="female"> Female</label>
+                        <label class="radio-label"><input type="radio" name="gender" value="other"> Other</label>
+                    </div>
+                </div>
+                
+                <div class="form-item"><label>Contact Number: <input type="tel" name="contact" required></label></div>
+                <div class="form-item"><label>Preferred Time of Arrival: <input type="time" name="arrival_time" required></label></div>
+                <button type="submit">Submit</button>
+                <button type="button" onclick="goBack()">Back</button>
+            </form>
+            <div class="success-message" id="successMessage"></div>
+        </div>
+
+        <div id="bloodSugarForm" class="form-container">
+            <h3 class="bold">Laser Vision Correction (LASIK)</h3>
+            <p></b>Description:</b> Laser surgery to reshape the cornea.</p>
+            <div><p><b>Price: </b> ₹1,60,000 - ₹2,40,000 per eye</p></div>
+            <form action="submit_form.php" method="post">
+                <div class="form-item"><label>Name: <input type="text" name="name" required></label></div>
+                <div class="form-item"><label>Date of Birth: <input type="date" name="dob" required></label></div>
+                <div class="form-item"><label>Email (optional): <input type="email" name="email"></label></div>
+                <div class="form-item"><label>Gender : </label>
+                    <div class="gender-options">
+                        <label class="radio-label"><input type="radio" name="gender" value="male" required> Male</label>
+                        <label class="radio-label"><input type="radio" name="gender" value="female"> Female</label>
+                        <label class="radio-label"><input type="radio" name="gender" value="other"> Other</label>
+                    </div>
+                </div>
+                
+                <div class="form-item"><label>Contact Number: <input type="tel" name="contact" required></label></div>
+                <div class="form-item"><label>Preferred Time of Arrival: <input type="time" name="arrival_time" required></label></div>
+                <button type="submit">Submit</button>
+                <button type="button" onclick="goBack()">Back</button>
+            </form>
+            <div class="success-message" id="successMessage"></div>
+        </div>
+        
+
+        <div id="urinalysisForm" class="form-container">
+            <h3 class="bold">Cataract Surgery</h3>
+            <p><b>Description:</b> Removal of the cloudy lens with an artificial lens replacement</p>
+            <div><p><b>Price:</b> ₹2,40,000 - ₹4,00,000 per eye</p></div>
+            <form action="submit_form.php" method="post">
+                <div class="form-item"><label>Name: <input type="text" name="name" required></label></div>
+                <div class="form-item"><label>Date of Birth: <input type="date" name="dob" required></label></div>
+                <div class="form-item"><label>Email (optional): <input type="email" name="email"></label></div>
+                <div class="form-item"><label>Gender : </label>
+                    <div class="gender-options">
+                        <label class="radio-label"><input type="radio" name="gender" value="male" required> Male</label>
+                        <label class="radio-label"><input type="radio" name="gender" value="female"> Female</label>
+                        <label class="radio-label"><input type="radio" name="gender" value="other"> Other</label>
+                    </div>
+                </div>
+                
+                <div class="form-item"><label>Contact Number: <input type="tel" name="contact" required></label></div>
+                <div class="form-item"><label>Preferred Time of Arrival: <input type="time" name="arrival_time" required></label></div>
+                <button type="submit">Submit</button>
+                <button type="button" onclick="goBack()">Back</button>
+            </form>
+            <div class="success-message" id="successMessageUrinalysis"></div>
+        </div>
+
+
+        <div id="urineMicroscopyForm" class="form-container">
+            <h3 class="bold">Glaucoma Treatment</h3>
+            <div><p><b>Description:</b> Treatments to lower eye pressure.</p></div>
+            <p><b>Price:</b> ₹12,000 - ₹1,00,000</p>
+            <form action="submit_form.php" method="post">
+                <div class="form-item"><label>Name: <input type="text" name="name" required></label></div>
+                <div class="form-item"><label>Date of Birth: <input type="date" name="dob" required></label></div>
+                <div class="form-item"><label>Email (optional): <input type="email" name="email"></label></div>
+                <div class="form-item"><label>Gender : </label>
+                    <div class="gender-options">
+                        <label class="radio-label"><input type="radio" name="gender" value="male" required> Male</label>
+                        <label class="radio-label"><input type="radio" name="gender" value="female"> Female</label>
+                        <label class="radio-label"><input type="radio" name="gender" value="other"> Other</label>
+                    </div>
+                </div>
+                
+                <div class="form-item"><label>Contact Number: <input type="tel" name="contact" required></label></div>
+                <div class="form-item"><label>Preferred Time of Arrival: <input type="time" name="arrival_time" required></label></div>
+                <button type="submit">Submit</button>
+                <button type="button" onclick="goBack()">Back</button>
+            </form>
+            <div class="success-message" id="successMessageUrinalysis"></div>
+        </div>
+
+
+        <div id="urineCultureForm" class="form-container">
+            <h3 class="bold">Retinal Detachment Surger</h3>
+            <div><p><b>Description:</b> Surgery to reattach the retina.</p></div>
+            <p><b>Price:</b>₹4,00,000 - ₹8,00,000</p>
+            <form action="submit_form.php" method="post">
+                <div class="form-item"><label>Name: <input type="text" name="name" required></label></div>
+                <div class="form-item"><label>Date of Birth: <input type="date" name="dob" required></label></div>
+                <div class="form-item"><label>Email (optional): <input type="email" name="email"></label></div>
+                <div class="form-item"><label>Gender : </label>
+                    <div class="gender-options">
+                        <label class="radio-label"><input type="radio" name="gender" value="male" required> Male</label>
+                        <label class="radio-label"><input type="radio" name="gender" value="female"> Female</label>
+                        <label class="radio-label"><input type="radio" name="gender" value="other"> Other</label>
+                    </div>
+                </div>
+                
+                <div class="form-item"><label>Contact Number: <input type="tel" name="contact" required></label></div>
+                <div class="form-item"><label>Preferred Time of Arrival: <input type="time" name="arrival_time" required></label></div>
+                <button type="submit">Submit</button>
+                <button type="button" onclick="goBack()">Back</button>
+            </form>
+            <div class="success-message" id="successMessageUrinalysis"></div>
+        </div>
+
+
+
+        <div id="xrayForm" class="form-container">
+            <h3 class="bold">Dry Eye Treatment</h3>
+            <div><p><b>Description:</b> Relief for dry eye symptoms</p></div>
+            <p><b>Price:</b> ₹4,000 - ₹24,000</p>
+            <form action="submit_form.php" method="post">
+                <div class="form-item"><label>Name: <input type="text" name="name" required></label></div>
+                <div class="form-item"><label>Date of Birth: <input type="date" name="dob" required></label></div>
+                <div class="form-item"><label>Email (optional): <input type="email" name="email"></label></div>
+                <div class="form-item"><label>Gender : </label>
+                    <div class="gender-options">
+                        <label class="radio-label"><input type="radio" name="gender" value="male" required> Male</label>
+                        <label class="radio-label"><input type="radio" name="gender" value="female"> Female</label>
+                        <label class="radio-label"><input type="radio" name="gender" value="other"> Other</label>
+                    </div>
+                </div>
+                
+                <div class="form-item"><label>Contact Number: <input type="tel" name="contact" required></label></div>
+                <div class="form-item"><label>Preferred Time of Arrival: <input type="time" name="arrival_time" required></label></div>
+                <button type="submit">Submit</button>
+                <button type="button" onclick="goBack()">Back</button>
+            </form>
+            <div class="success-message" id="successMessageUrinalysis"></div>
+        </div>
+
+
+
+        <div id="ctScanForm" class="form-container">
+            <h3 class="bold">Macular Degeneration Treatment</h3>
+            <div><p><b>Description:</b> Therapies to slow vision loss.</p></div>
+            <p><b>Price:</b> ₹80,000 - ₹2,00,000</p>
+            <form action="submit_form.php" method="post">
+                <div class="form-item"><label>Name: <input type="text" name="name" required></label></div>
+                <div class="form-item"><label>Date of Birth: <input type="date" name="dob" required></label></div>
+                <div class="form-item"><label>Email (optional): <input type="email" name="email"></label></div>
+                <div class="form-item"><label>Gender : </label>
+                    <div class="gender-options">
+                        <label class="radio-label"><input type="radio" name="gender" value="male" required> Male</label>
+                        <label class="radio-label"><input type="radio" name="gender" value="female"> Female</label>
+                        <label class="radio-label"><input type="radio" name="gender" value="other"> Other</label>
+                    </div>
+                </div>
+                
+                <div class="form-item"><label>Contact Number: <input type="tel" name="contact" required></label></div>
+                <div class="form-item"><label>Preferred Time of Arrival: <input type="time" name="arrival_time" required></label></div>
+                <button type="submit">Submit</button>
+                <button type="button" onclick="goBack()">Back</button>
+            </form>
+            <div class="success-message" id="successMessageUrinalysis"></div>
+        </div>
+
+
+
+        <div id="mriForm" class="form-container">
+            <h3 class="bold">Keratoconus Treatment</h3>
+            <div><p><b>Description:</b> Stabilizing procedures for corneal shape.</p></div>
+            <p><b>Price:</b> ₹40,000 - ₹4,00,000</p>
+            <form action="submit_form.php" method="post">
+                <div class="form-item"><label>Name: <input type="text" name="name" required></label></div>
+                <div class="form-item"><label>Date of Birth: <input type="date" name="dob" required></label></div>
+                <div class="form-item"><label>Email (optional): <input type="email" name="email"></label></div>
+                <div class="form-item"><label>Gender : </label>
+                    <div class="gender-options">
+                        <label class="radio-label"><input type="radio" name="gender" value="male" required> Male</label>
+                        <label class="radio-label"><input type="radio" name="gender" value="female"> Female</label>
+                        <label class="radio-label"><input type="radio" name="gender" value="other"> Other</label>
+                    </div>
+                </div>
+                
+                <div class="form-item"><label>Contact Number: <input type="tel" name="contact" required></label></div>
+                <div class="form-item"><label>Preferred Time of Arrival: <input type="time" name="arrival_time" required></label></div>
+                <button type="submit">Submit</button>
+                <button type="button" onclick="goBack()">Back</button>
+            </form>
+            <div class="success-message" id="successMessageUrinalysis"></div>
+        </div>
+        
+       
+        
+    </div>
+
+    <script>
+        function toggleDropdown(dropdownId) {
+            const dropdown = document.getElementById(dropdownId);
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function showForm(formId) {
+            const servicesTable = document.getElementById('servicesTable');
+            servicesTable.style.display = 'none'; 
+            const forms = document.querySelectorAll('.form-container');
+            forms.forEach(form => form.style.display = 'none'); 
+            document.getElementById(formId).style.display = 'block'; 
+        }
+
+        function goBack() {
+            const forms = document.querySelectorAll('.form-container');
+            forms.forEach(form => form.style.display = 'none'); 
+            document.getElementById('servicesTable').style.display = 'block'; 
+        }
+    </script>
+   
+</body>
+</html>
